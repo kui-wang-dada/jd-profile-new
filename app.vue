@@ -9,8 +9,8 @@ let queryParams = computed(() => { })
   <div class='wrap'>
     <CommonTopBar />
     <NuxtLayout>
+      <NuxtPage></NuxtPage>
       <NuxtLoadingIndicator :height="5" :duration="3000" :throttle="400" />
-      <NuxtPage />
     </NuxtLayout>
     <CommonFooter />
   </div>

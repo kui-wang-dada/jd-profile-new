@@ -4,9 +4,11 @@ import { useCommon } from '@/store/common'
 import { DownOutlined } from '@ant-design/icons-vue'
 import { useI18n } from 'vue-i18n'
 const store = useCommon()
-const { t } = useI18n()
+const { t, locale, te } = useI18n()
+// console.log(123, useI18n());
 const route = useRoute()
-console.log(t, 'ttt')
+// console.log(123);
+// console.log(t, 'ttt')
 const props = defineProps({})
 const data = reactive({
   activeIndex: 0,
@@ -55,9 +57,14 @@ const initDomHeight = () => {
   });
 }
 const handleLangItem = (e) => {
-  console.log(e, 'ee');
+  // console.log(e,);
+  // console.log(store.changeLang);
   store.changeLang(e.key);
+  // locale.value = e.key
   // i18n.locale = e.key;
+  locale.value = e.key
+  // console.log(e.key);
+
 }
 const onScroll = () => {
   const scrollTop = document.documentElement.scrollTop;
@@ -77,7 +84,7 @@ const onScroll = () => {
 }
 
 const checkRoute = (newV) => {
-  console.log(newV, 'newV');
+  // console.log(newV, 'newV');
   if (data.shadowRoute.includes(newV.name)) {
     data.headerChange = true;
   } else {
@@ -96,7 +103,7 @@ const goTo = (item, index) => {
   }
   data.activeIndex = index;
   const top = data.numArr[index];
-  console.log(top, 'top');
+  // console.log(top, 'top');
   document.documentElement.scrollTo({ left: 0, top, behavior: 'smooth' });
 }
 </script>
@@ -113,14 +120,18 @@ const goTo = (item, index) => {
           <img class="icon-lang" src="@img/common/icon-lang.png" alt="" />
           <a-dropdown>
             <p class="ant-dropdown-link">{{ keyValue }} <down-outlined /></p>
-            <a-menu slot="overlay" @click="handleLangItem">
-              <a-menu-item key="zh">
-                <a href="javascript:;">中文简体</a>
-              </a-menu-item>
-              <a-menu-item key="en">
-                <a href="javascript:;">English</a>
-              </a-menu-item>
-            </a-menu>
+            <template #overlay>
+              <a-menu slot="overlay" @click="handleLangItem">
+                <a-menu-item key="zh">
+                  <!-- <a href="javascript:;">中文简体</a> -->
+                  <span>中文简体</span>
+                </a-menu-item>
+                <a-menu-item key="en">
+                  <!-- <a href="javascript:;">English</a> -->
+                  <span>English</span>
+                </a-menu-item>
+              </a-menu>
+            </template>
           </a-dropdown>
         </div>
       </div>
@@ -134,7 +145,7 @@ const goTo = (item, index) => {
   left: 0;
   top: 0;
   width: 100%;
-  background-color: #ccc;
+  // background-color: #ccc;
 
   &.headerChange {
     height: 69px;
