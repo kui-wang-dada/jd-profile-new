@@ -5,7 +5,7 @@ import { useI18n } from 'vue-i18n'
 import { useCommon } from '@/store/common'
 const { t, locale, te } = useI18n()
 const store = useCommon()
-let tabList = store.tabList
+let tabList = computed(() => store.tabList)
 // console.log(tabList);
 // const props = defineProps({})
 onMounted(() => { })

@@ -2,33 +2,31 @@ import { acceptHMRUpdate } from "pinia";
 import { tabList, tabListEn, projectList, projectListEn } from '@/utils/constant'
 export const useCommon = defineStore('common', {
   state: () => ({
-    lang: 'zh' as 'en' | 'zh',
+    lang: 'en' as 'en' | 'zh',
+    tabList: tabListEn,
+    projectList: projectListEn
   }),
 
   actions: {
     // 此处为设置locale
     changeLang(lang: 'zh' | 'en') {
+
       this.lang = lang;
+      if (this.lang == 'zh') {
+        this.tabList = tabList
+        this.projectList = projectList
+      } else if (this.lang == 'en') {
+        this.tabList = tabListEn
+        this.projectList = projectListEn
+      }
     },
     changeMe() {
       console.log('change me to test HMR')
     },
+
   },
   getters: {
-    tabList: (state) => {
-      if (state.lang === 'en') {
-        return tabListEn
-      } else if (state.lang === 'zh') {
-        return tabList
-      }
-    },
-    projectList: (state) => {
-      if (state.lang === 'en') {
-        return projectListEn
-      } else if (state.lang === 'zh') {
-        return projectList
-      }
-    }
+
   }
 })
 

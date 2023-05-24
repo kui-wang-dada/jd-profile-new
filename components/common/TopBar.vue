@@ -59,12 +59,10 @@ const initDomHeight = () => {
 const handleLangItem = (e) => {
   // console.log(e,);
   // console.log(store.changeLang);
+  console.log();
   store.changeLang(e.key);
   // locale.value = e.key
-  // i18n.locale = e.key;
-  locale.value = e.key
   // console.log(e.key);
-
 }
 const onScroll = () => {
   const scrollTop = document.documentElement.scrollTop;

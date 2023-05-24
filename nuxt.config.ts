@@ -13,7 +13,6 @@ export default defineNuxtConfig({
     '@pinia/nuxt',
     '@nuxtjs/i18n',
     'nuxt-swiper',
-
   ],
   i18n: {
     // vueI18n: './assets/lang/index.ts' // if you are using custom path, default 
@@ -25,7 +24,7 @@ export default defineNuxtConfig({
       },
       { code: 'zh', file: 'zh.json' },
     ],
-    defaultLocale: 'zh',
+    defaultLocale: 'en',
     lazy: true,
     langDir: 'assets/lang/',
     strategy: 'prefix_except_default',
@@ -49,6 +48,7 @@ export default defineNuxtConfig({
   },
   plugins: [
     '@/plugins/antd-ui',
+    // { src: "~/plugins/swiper.ts", ssr: false }
   ],
   vite: {
     css: {

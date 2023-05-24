@@ -16,6 +16,6 @@ let queryParams = computed(() => { })
 </template>
 <style scoped lang='less'>
 h2 {
-  font-size: 200px;
+  // font-size: 200px;
 }
 </style>

@@ -3,18 +3,21 @@ import { ref, onMounted, computed, reactive } from 'vue'
 import { useRouter } from 'vue-router'
 import CaseFilter from './CaseFilter.vue'
 import CaseList from './CaseList.vue'
-const props = defineProps({})
+const props = defineProps(['filter'])
+
 onMounted(() => { })
 let queryParams = computed(() => { })
 let filter = reactive({
   stackCheck: [],
   typeCheck: [],
 })
-const changeType = (filterContent) => {
-  filter.typeCheck = filterContent
+const changeType = (typeContent) => {
+  filter.typeCheck = typeContent
+  console.log(filter.typeCheck);
 }
 const changeStack = (stackContent) => {
   filter.stackCheck = stackContent
+  console.log(filter.stackCheck);
 }
 </script>
 <template>

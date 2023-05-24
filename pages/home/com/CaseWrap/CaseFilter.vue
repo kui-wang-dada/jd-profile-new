@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted, computed, reactive } from 'vue'
+import { ref, onMounted, computed, reactive, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import { useCommon } from "@/store/common";
 import { useI18n } from 'vue-i18n'
@@ -7,10 +7,13 @@ const { t, locale, te } = useI18n()
 const props = defineProps(['filter', 'changeStack', 'changeType'])
 // console.log(props.changeFilter, props.filter);
 let store = useCommon()
-let projectList = store.projectList
+let projectList = computed(() => store.projectList)
+let typeCheck = reactive({})
+let stackCheck = reactive({})
+
 let typeList = computed(() => {
   let list = []
-  projectList.forEach(item => {
+  projectList.value.forEach(item => {
     list.push(...item.type)
   })
   list = [t('common.all'), ...new Set(list)];
@@ -19,37 +22,66 @@ let typeList = computed(() => {
 console.log(store.projectList);
 let stackList = computed(() => {
   let list = []
-  projectList.forEach(item => {
+  projectList.value.forEach(item => {
     list.push(...item.stack)
   })
   list = [t('common.all'), ...new Set(list)];
   return list
 })
+typeList.value.forEach(item => typeCheck[item] = false)
+stackList.value.forEach(item => stackCheck[item] = false)
+// console.log(props.filter.typeCheck);
+// console.log(typeList);
 const changeType = (checked, item) => {
-  console.log(typeCheck);
+  if (item == t('common.all')) {
+    for (const key in typeCheck) {
+      typeCheck[key] = checked
+    }
+  }
+  let list = []
+  for (const key in typeCheck) {
+    if (typeCheck[key] && key != t('common.all')) {
+      list.push(key)
+    }
+  }
+  props.changeType(list)
 }
 const changeStack = (checked, item) => {
-  console.log(stackCheck);
+  // console.log(item);
+  if (item == t('common.all')) {
+    for (const key in stackCheck) {
+      stackCheck[key] = checked
+    }
+  }
+  let list = []
+  for (const key in stackCheck) {
+    if (stackCheck[key] && key != t('common.all')) {
+      list.push(key)
+    }
+  }
+  props.changeStack(list)
 }
-let typeCheck = reactive({})
-let stackCheck = reactive({})
-console.log(props.filter.typeCheck);
+
 </script>
 <template>
   <div class='filter-wrap'>
     <div class="filter-item">
       <span class="label">{{ $t('case.label1') }}：</span>
-      <a-checkable-tag v-for="typeItem in typeList" :key="typeItem" v-model:checked="typeCheck[typeItem]"
-        @change="changeType">
-        {{ typeItem }}
-      </a-checkable-tag>
+      <div class="list-wrap">
+        <a-checkable-tag v-for="typeItem in typeList" :key="typeItem" v-model:checked="typeCheck[typeItem]"
+          @change="(checked) => changeType(checked, typeItem)">
+          {{ typeItem }}
+        </a-checkable-tag>
+      </div>
     </div>
     <div class="filter-item">
       <span class="label">{{ $t('case.label2') }}：</span>
-      <a-checkable-tag v-for="stackItem in stackList" :key="stackList" v-model:checked="stackCheck[stackItem]"
-        @change="changeStack">
-        {{ stackItem }}
-      </a-checkable-tag>
+      <div class="list-wrap">
+        <a-checkable-tag v-for="stackItem in stackList" :key="stackList" v-model:checked="stackCheck[stackItem]"
+          @change="(checked) => changeStack(checked, stackItem)">
+          {{ stackItem }}
+        </a-checkable-tag>
+      </div>
     </div>
   </div>
 </template>
@@ -72,6 +104,10 @@ console.log(props.filter.typeCheck);
       .ant-tag {
         font-size: 16px;
         cursor: pointer;
+      }
+
+      .ant-tag {
+        margin-right: 8px;
       }
     }
   }

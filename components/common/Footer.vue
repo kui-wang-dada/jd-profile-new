@@ -8,11 +8,11 @@ onMounted(() => { })
 let majorList = computed(() => ([
   {
     title: t('footer.major.title1'),
-    icon: 'qrcode-1.png'
+    icon: '@img/common/qrcode-1.png'
   },
   {
     title: t('footer.major.title2'),
-    icon: 'qrcode-2.png',
+    icon: '@img/common/qrcode-2.png',
   },
 ]))
 let linkList = computed(() => ([
@@ -38,9 +38,12 @@ let linkList = computed(() => ([
     ],
   },
 ]))
+
 const getImage = (name) => {
-  return new URL(`../../assets/img/common/${name}`, import.meta.url).href
+  let imgName = name.substring(name.indexOf('common'));
+  return new URL(`../../assets/img/${imgName}`, import.meta.url).href
 }
+
 </script>
 <template>
   <div class='wrap'>
@@ -49,7 +52,8 @@ const getImage = (name) => {
         <div class="left-wrap">
           <div v-for="(webType, index) in majorList" :key="webType.title" class="left-item">
             <h3>{{ webType.title }}</h3>
-            <img :src="getImage(webType.icon)" alt="" />
+            <div class="img-box" :style="`background-image: url(${getImage(webType.icon)});`"></div>
+            <!-- <img :src="getImage(webType.icon)" alt="" /> -->
           </div>
         </div>
         <div class="right-wrap">
@@ -143,10 +147,11 @@ const getImage = (name) => {
           margin-right: 80px;
           margin-bottom: 80px;
 
-          img {
+          .img-box {
             width: 250px;
             height: 80px;
             margin-right: 10px;
+            background-size: 100% 100%;
           }
         }
       }
