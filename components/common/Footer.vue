@@ -50,9 +50,9 @@ const getImage = (name) => {
     <div class="con-main-wrap">
       <div class="link-wrap">
         <div class="left-wrap">
-          <div v-for="(webType, index) in majorList" :key="webType.title" class="left-item">
+          <div v-for="(webType, index) in majorList" :key="webType.title" class="left-item flex-row">
             <h3>{{ webType.title }}</h3>
-            <div class="img-box" :style="`background-image: url(${getImage(webType.icon)});`"></div>
+            <div class="img-box" :style="`background-image: url('${getImage(webType.icon)}');`"></div>
             <!-- <img :src="getImage(webType.icon)" alt="" /> -->
           </div>
         </div>
