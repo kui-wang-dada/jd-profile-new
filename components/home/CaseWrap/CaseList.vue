@@ -32,7 +32,7 @@ let list = computed(() => {
 })
 const getImage = (name) => {
   let imgName = name.substring(name.indexOf('project'));
-  return new URL(`../../../../assets/img/${imgName}`, import.meta.url).href
+  return new URL(`../../../assets/img/${imgName}`, import.meta.url).href
 }
 
 const clickItem = (item) => {
@@ -110,6 +110,7 @@ const hideModal = () => {
 
     .card-wrap {
       .flex-row;
+      overflow: hidden;
       position: relative;
       width: 450px;
       height: 250px;

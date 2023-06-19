@@ -5,7 +5,6 @@ import { useCommon } from "@/store/common";
 import { useI18n } from 'vue-i18n'
 const { t, locale, te } = useI18n()
 const props = defineProps(['filter', 'changeStack', 'changeType'])
-// console.log(props.changeFilter, props.filter);
 let store = useCommon()
 let projectList = computed(() => store.projectList)
 let typeCheck = reactive({})
@@ -30,8 +29,6 @@ let stackList = computed(() => {
 })
 typeList.value.forEach(item => typeCheck[item] = false)
 stackList.value.forEach(item => stackCheck[item] = false)
-// console.log(props.filter.typeCheck);
-// console.log(typeList);
 const changeType = (checked, item) => {
   if (item == t('common.all')) {
     for (const key in typeCheck) {
@@ -96,10 +93,11 @@ const changeStack = (checked, item) => {
       color: #333;
       font-weight: bold;
       width: 150px;
+      margin-right: 10px;
     }
 
     .list-wrap {
-      margin-bottom: 10px;
+      // margin-bottom: 10px;
 
       .ant-tag {
         font-size: 16px;
