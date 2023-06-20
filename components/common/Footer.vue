@@ -2,18 +2,18 @@
 import { ref, onMounted, computed } from 'vue'
 import { useRouter } from 'vue-router'
 import { useI18n } from 'vue-i18n'
-import { getImageUrl } from "../../utils";
+import { getImageUrl } from "@/utils";
 const { t, locale, te } = useI18n()
 const props = defineProps({})
 onMounted(() => { })
 let majorList = computed(() => ([
   {
     title: t('footer.major.title1'),
-    icon: 'common/qrcode-1.png'
+    icon: '/img/common/qrcode-1.png'
   },
   {
     title: t('footer.major.title2'),
-    icon: 'common/qrcode-2.png',
+    icon: '/img/common/qrcode-2.png',
   },
 ]))
 let linkList = computed(() => ([
@@ -53,9 +53,7 @@ let linkList = computed(() => ([
         <div class="left-wrap">
           <div v-for="(webType, index) in majorList" :key="webType.title" class="left-item flex-row">
             <h3>{{ webType.title }}</h3>
-            <!-- <div class="img-box" :style="`background-image: url('@img/common/qrcode-1.png');`"></div> -->
-            <div class="img-box" :style="`background-image: url('${getImageUrl(webType.icon)}');`"></div>
-            <!-- <img :src="getImage(webType.icon)" alt="" /> -->
+            <img class="img-box" :src="webType.icon" alt="" />
           </div>
         </div>
         <div class="right-wrap">

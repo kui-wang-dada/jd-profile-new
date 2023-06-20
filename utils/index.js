@@ -32,6 +32,9 @@ export function getStorage(key) {
 export function setStorage(key, val) {
   return localStorage.setItem(key, JSON.stringify(val))
 }
+
+
+
 export const getImageUrl = name => {
-  return new URL(`../assets/img/${name}`, import.meta.url).href;
+  return new URL(`/img/${name}`, import.meta.url).href;
 };

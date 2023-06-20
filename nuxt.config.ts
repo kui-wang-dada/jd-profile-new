@@ -2,7 +2,14 @@ import { fileURLToPath } from "node:url";
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  css: ['ant-design-vue/dist/antd.css', 'assets/css/index.less'],
+  app: {
+    head: {
+      script: [
+        { src: '/js/rem.js', type: 'text/javascript', },
+      ],
+    }
+  },
+  css: ['ant-design-vue/dist/antd.css', 'assets/css/index.less',],
   alias: {
     '@img': fileURLToPath(new URL('./assets/img', import.meta.url)),
 
@@ -69,7 +76,7 @@ export default defineNuxtConfig({
         // overrideBrowserslist: ["last 5 version", ">1%", "ie >=8"]
       },
       'postcss-pxtorem': {
-        rootValue: 1400,
+        rootValue: 192,
         propList: ['*'],
         replace: true, // 替换包含rem的规则，而不是添加回退
         selectorBalckList: ["van"], // 匹配不被转换为rem的选择器

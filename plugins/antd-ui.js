@@ -1,5 +1,5 @@
 
-import { Modal, Dropdown, Menu, Tabs, Tag, List, Card, Descriptions, Table, Carousel } from 'ant-design-vue';
+import { Modal, Dropdown, Menu, Tabs, Tag, List, Card, Descriptions, Table, Carousel, Image } from 'ant-design-vue';
 
 export default defineNuxtPlugin(nuxtApp => {
   nuxtApp.vueApp.use(Modal);
@@ -12,5 +12,6 @@ export default defineNuxtPlugin(nuxtApp => {
   nuxtApp.vueApp.use(Descriptions);
   nuxtApp.vueApp.use(Table);
   nuxtApp.vueApp.use(Carousel);
+  nuxtApp.vueApp.use(Image);
 })
 

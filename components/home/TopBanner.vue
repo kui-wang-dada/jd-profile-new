@@ -7,7 +7,11 @@ const { t, locale, te } = useI18n()
 const list = computed(() => [t('banner.label1'), t('banner.label2'), t('banner.label3'), t('banner.label4'), t('banner.label5')])
 const props = defineProps({})
 onMounted(() => { })
-let queryParams = computed(() => { })
+let imgJd = computed(() => {
+  return locale.value === 'en' ? '/img/home/wk-jd-en.png' : '/img/home/wk-jd.png'
+})
+
+
 </script>
 <template>
   <div class="wrap section-wrap">
@@ -18,7 +22,7 @@ let queryParams = computed(() => { })
           <h3>{{ $t('banner.title1') }}</h3>
           <h5 v-for="(item, index) in list" :key="index">{{ item }}</h5>
         </div>
-        <img src="@img/common/profile.jpeg" alt="" />
+        <a-image :src="imgJd"></a-image>
       </div>
     </div>
   </div>
@@ -48,8 +52,12 @@ let queryParams = computed(() => { })
       margin: 0 auto;
       .flex-row;
       justify-content: space-between;
+      gap: 40px;
 
       .item-con {
+        flex: 1;
+
+
         h3 {
           font-size: 50px;
           font-weight: 600;
@@ -65,8 +73,8 @@ let queryParams = computed(() => { })
         }
       }
 
-      img {
-        width: 150px;
+      :deep(.ant-image) {
+        width: 300px;
       }
     }
   }
