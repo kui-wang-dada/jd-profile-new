@@ -53,10 +53,12 @@ export default defineNuxtConfig({
       ['defineStore', 'definePiniaStore'], // import { defineStore as definePiniaStore } from 'pinia'
     ],
   },
+
   plugins: [
     '@/plugins/antd-ui',
     // { src: "~/plugins/swiper.ts", ssr: false }
   ],
+
   vite: {
     css: {
       preprocessorOptions: {
@@ -65,6 +67,7 @@ export default defineNuxtConfig({
         },
       },
     },
+
   },
   router: {
 
@@ -83,4 +86,5 @@ export default defineNuxtConfig({
       },
     },
   },
+
 })
