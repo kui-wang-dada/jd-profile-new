@@ -46,7 +46,7 @@ let list2 = computed(() => ([
         {{ $t('blog.title2') }}
         <a target="_blank" href="http://www.dadafastrun.com/blog/">{{ $t('common.detail') }}</a>
       </h5>
-      <img class="icon-list" src="@img/home/icon-list.png" alt="" />
+      <img class="icon-list" src="/img/home/icon-list.png" alt="" />
     </div>
     <div class="blog-wrap">
       <div class="blog-item blog-1">

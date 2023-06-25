@@ -19,13 +19,11 @@
   "banner":{
     "title1": "Kui (Kevin) Wang",
     "label1":
-      "Graduated from Huazhong Agricultural University in 2014. After graduation, he went to township institutions to engage in grassroots party and government work for one and a half years. During this period, he taught himself java, front-end and other knowledge, and changed careers in October 2016",
-    "label2":
-      "Experienced in blockchain company (half a year), Houren service (three years), iFLYTEK (one year), leisurely one finger (one year), cloud service (one year)",
-    "label3":
-      "The technology stacks that have production projects during the period `include`: `Web3, vue, native applet, react-native, egret games, cordova, flutter, taro, uniapp, react+formily, etc.",
-    "label4": "At the same time, I taught myself solidity, node, java spring boot, golang and other back-end languages",
-    "label5": "Looking forward to peers! ! "
+    "Since 2016, I have been engaged in programmer development, 7 years in the front end and 3 years in the back end",
+  "label3":
+    "Technical Skill: Web3, React, Nextjs, Vue, Nuxtjs, React-Native, Cordova, Taro, etc.",
+  "label4": "Familiar：node, java spring boot, golang and other back-end languages",
+  "label5": "Looking forward to traveling with you!!"
   },
   "website":{
     "title1": "Work experience",

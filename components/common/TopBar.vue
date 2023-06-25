@@ -104,14 +104,14 @@ const goTo = (item, index) => {
 <template>
   <div class="wrap" :class="{ headerChange: data.headerChange }">
     <div class="main-wrap">
-      <img class="logo" src="@img/common/logo.png" alt="" />
+      <img class="logo" src="/img/common/logo.png" alt="" />
       <div class="right-wrap">
         <div v-for="(item, index) in list" :key="index" :class="{ isActive: data.activeIndex === index }"
           class="right-item" @click="goTo(item, index)">
           <p>{{ item.title }}</p>
         </div>
         <div class="lang-wrap">
-          <img class="icon-lang" src="@img/common/icon-lang.png" alt="" />
+          <img class="icon-lang" src="/img/common/icon-lang.png" alt="" />
           <a-dropdown>
             <p class="ant-dropdown-link">{{ keyValue }} <down-outlined /></p>
             <template #overlay>

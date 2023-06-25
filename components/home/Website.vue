@@ -48,7 +48,7 @@ let columns = computed(() => ([
     <div class="top-wrap">
       <h3>{{ $t('website.title1') }}</h3>
       <h5>{{ $t('website.title2') }}</h5>
-      <img class="icon-list" src="@img/home/icon-list.png" alt="" />
+      <img class="icon-list" src="/img/home/icon-list.png" alt="" />
     </div>
     <a-tabs animated :tabBarGutter="20">
       <a-tab-pane v-for="item in tabList" :key="item.name">

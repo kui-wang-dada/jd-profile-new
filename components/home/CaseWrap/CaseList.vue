@@ -30,10 +30,7 @@ let list = computed(() => {
   })
   return arr
 })
-const getImage = (name) => {
-  let imgName = name.substring(name.indexOf('project'));
-  return new URL(`../../../assets/img/${imgName}`, import.meta.url).href
-}
+
 
 const clickItem = (item) => {
   console.log(item);
@@ -60,17 +57,14 @@ const hideModal = () => {
             <div class="card-wrap">
               <div class="card-con">
                 <h3>{{ item.name }}</h3>
+                <div class="tag-list">
+                  <a-tag v-for="tag in item.type" :key="tag" size="large" color="red">{{ tag }}</a-tag>
+                  <a-tag v-for="tag in item.stack" :key="tag" size="large" color="green">{{ tag }}</a-tag>
+                </div>
                 <p>{{ item.label }}</p>
-                <div class="type-wrap">
-                  <span>{{ $t('case.label3') }}：</span>
-                  <a-tag v-for="tag in item.type" :key="tag" color="red">{{ tag }}</a-tag>
-                </div>
-                <div class="stack-wrap">
-                  <span>{{ $t('case.label4') }}：</span>
-                  <a-tag v-for="tag in item.stack" :key="tag" color="green">{{ tag }}</a-tag>
-                </div>
+
               </div>
-              <div class="bg" :style='{ backgroundImage: `url(${getImage(item.thumb)})` }'>
+              <div class="bg" :style='{ backgroundImage: `url(${item.thumb})` }'>
               </div>
             </div>
           </a-card>
@@ -90,12 +84,12 @@ const hideModal = () => {
       <div class="thumb-example">
         <h3>{{ $t('case.label5') }}</h3>
         <!-- swiper1 -->
-        <a-carousel :autoplay="true" class="swiper">
-          <div v-for="(item, index) in activeItem.img" :key='index'>
-            <div class="img-box" :style="`background-image: url(${getImage(item)});`">
-            </div>
-          </div>
-        </a-carousel>
+        <div class="img-list">
+          <a-image-preview-group>
+            <a-image v-for="(item, index) in activeItem.img" :key='index' :src="item" />
+          </a-image-preview-group>
+        </div>
+
       </div>
     </a-modal>
   </div>
@@ -110,6 +104,7 @@ const hideModal = () => {
 
     .card-wrap {
       .flex-row;
+      align-items: flex-start;
       overflow: hidden;
       position: relative;
       width: 450px;
@@ -130,6 +125,7 @@ const hideModal = () => {
 
       .card-con {
         width: 100%;
+        padding-top: 15px;
         z-index: 1;
         padding-left: 42%;
         padding-right: 2%;
@@ -140,38 +136,35 @@ const hideModal = () => {
           font-weight: bold;
         }
 
-        .type-wrap {
-          margin-top: 10px;
+        .tag-list {
+          .flex-row;
+          justify-content: flex-start;
+          flex-wrap: wrap;
+
+          gap: 8px;
+          margin-bottom: 5px;
+
         }
 
-        .stack-wrap {
-          margin-top: 10px;
-        }
 
-        .ant-tag {
-          margin-right: 8px;
-        }
       }
     }
   }
 }
 
 .thumb-example {
-  height: 780px;
   background-color: #000;
-}
 
-.ant-carousel :deep(.slick-slide) {
-  text-align: center;
+  .img-list {
+    .flex-row;
+    align-items: stretch;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 30px;
 
-  background: #364d79;
-  overflow: hidden;
-}
-
-.ant-carousel :deep(.slick-slide .img-box) {
-  height: 780px;
-  background-repeat: no-repeat;
-  background-position: 50%;
-  background-size: auto 100%;
+    :deep(.ant-image) {
+      width: 30%
+    }
+  }
 }
 </style>

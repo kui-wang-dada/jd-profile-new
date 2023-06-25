@@ -35,14 +35,17 @@ let imgJd = computed(() => {
     padding: 110px 0 50px;
 
     .bg {
-      filter: brightness(60%);
+      background-image: url(/img/common/profile-1.png), url(/img/common/profile-2.png), url(/img/common/profile-3.png), url(/img/common/profile-4.png);
+      background-position-x: 0, 25%, 65%, 100%;
+      background-repeat: no-repeat;
+      background-size: 20%, 20%, 40%, 20%;
+      filter: brightness(20%);
       position: absolute;
       top: 0;
       left: 0;
       right: 0;
       bottom: 0;
-      width: 100%;
-      height: 100%;
+
       z-index: -1;
       background-color: #1563f9;
     }

@@ -24,7 +24,7 @@ const changeStack = (stackContent) => {
   <section class="case-wrap section-wrap">
     <div class="top-wrap">
       <h3>{{ $t('case.label0') }}</h3>
-      <img class="icon-list" src="@img/common/icon-list.png" alt="" />
+      <img class="icon-list" src="/img/common/icon-list.png" alt="" />
     </div>
     <div class="con-main-wrap">
       <div class="case-filter">
