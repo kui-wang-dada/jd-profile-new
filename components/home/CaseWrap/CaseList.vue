@@ -33,14 +33,14 @@ let list = computed(() => {
 
 
 const clickItem = (item) => {
-  console.log(item);
+  console.log(item, 'item');
   activeItem = { ...item };
   if (activeItem.con) {
     activeItem.con = activeItem.con.map((item) => {
       return item.split(",")
     })
   }
-  console.log(activeItem);
+  console.log(activeItem, 'activeItem');
   visible.value = true
 }
 const hideModal = () => {
@@ -76,7 +76,7 @@ const hideModal = () => {
       <div>
         <a-descriptions :title="$t('case.label6')">
           <a-descriptions-item v-for="con in activeItem.con" :key="con[0]" :label="con[0]">
-            <a v-if="con[1].includes('http')" :href="con[1]" target="_blank"> {{ con[1] }}</a>
+            <a v-if="con[1] && con[1].includes('http')" :href="con[1]" target="_blank"> {{ con[1] }}</a>
             <span v-else>{{ con[1] }}</span>
           </a-descriptions-item>
         </a-descriptions>

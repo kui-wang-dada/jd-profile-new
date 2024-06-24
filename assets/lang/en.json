@@ -1,5 +1,5 @@
 {
-  "common":{
+  "common": {
     "zh": "Chinese",
     "en": "English",
     "wait": "under development",
@@ -10,24 +10,23 @@
     "cancel": "Cancel",
     "detail": "View details"
   },
-  "header":{
+  "header": {
     "title1": "Home",
     "title2": "work experience",
     "title3": "Project experience",
     "title4": "Related Articles"
   },
-  "banner":{
+  "banner": {
     "title1": "Kui (Kevin) Wang",
-    "label1":
-    "Since 2016, I have been engaged in programmer development, 7 years in the front end and 3 years in the back end",
-  "label3":
-    "Technical Skill: Web3, React, Nextjs, Vue, Nuxtjs, React-Native, Cordova, Taro, etc.",
-  "label4": "Familiar：node, java spring boot, golang and other back-end languages",
-  "label5": "Looking forward to traveling with you!!"
+    "label1": "Since 2016, I have been engaged in programmer development, 8 years in the front end and 3 years in the back end",
+    "label2": "Previously worked at the following companies: Blockchain company (three years), Huren Service (three years), iFlytek (one year), Youran Yizhi (one year), Yunli Service (one year)",
+    "label3": "Technical Skill:Python, Web3, React, Nextjs, Vue, Nuxtjs, React-Native, Cordova, etc.",
+    "label4": "Familiar：node, java spring boot, golang and other back-end languages",
+    "label5": "Looking forward to traveling with you!!"
   },
-  "website":{
+  "website": {
     "title1": "Work experience",
-    "title2": "6 years of front-end work experience, self-study solidity, node, java, golang, etc.",
+    "title2": "8 years of front-end work experience, self-study solidity, Python, Node, Golang, etc.",
     "time": "working hours",
     "column1": "Sequence number",
     "column2": "Plate name",
@@ -36,24 +35,24 @@
     "column5": "difficulty",
     "column6": "View details"
   },
-  "footer":{
-    "major":{
+  "footer": {
+    "major": {
       "title1": "Front-end self-study community alliance (public account)",
       "title2": "Web front-end self-study community (mini program)"
     },
-    "link":{
+    "link": {
       "title": "Related information",
       "con1": "WeChat",
       "con2": "Mobile phone number",
       "con3": "city",
       "con4": "Hubei Wuhan"
     },
-    "copyright":{
+    "copyright": {
       "title1": "Copyright © Wang Kui all rights reserved",
       "title2": "Record number: ubei ICP No. 18009297"
     }
   },
-  "case":{
+  "case": {
     "label0": "Project experience",
     "label1": "item type",
     "label2": "Classification",
@@ -62,19 +61,17 @@
     "label5": "Project screenshot",
     "label6": "Project introduction"
   },
-  "blog":{
+  "blog": {
     "title1": "Related Articles",
-    "title2": "6 years of front-end work experience, self-study java, golang, etc.",
+    "title2": "8 years of front-end work experience, self-study solidity, Python, Node, Golang, etc",
     "title3": "Personal experience",
     "title4": "Technical Article Notes",
     "item1": "I changed my career at the age of 27 - I graduated that year, I don't know how many jobs I changed",
     "item2": "The 27-year-old turned to the wind and rain road 2 - the front-end job-hopping road",
-    "item3":
-      "Turn to Wind and Rain Road 3 at the age of 27 - breaking the game at the age of 35, the road to the transformation of programmers",
+    "item3": "Turn to Wind and Rain Road 3 at the age of 27 - breaking the game at the age of 35, the road to the transformation of programmers",
     "item4": "Javascript - Object Oriented Programming and Inheritance",
     "item5": "ReactNative Technology Stack Summary",
     "item6": "HTTP Protocol Summary",
     "item7": "docker study notes"
   }
-
 }
