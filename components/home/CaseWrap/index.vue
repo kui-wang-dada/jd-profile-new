@@ -27,9 +27,9 @@ const changeStack = (stackContent) => {
       <img class="icon-list" src="/img/common/icon-list.png" alt="" />
     </div>
     <div class="con-main-wrap">
-      <div class="case-filter">
+      <!-- <div class="case-filter">
         <CaseFilter :filter="filter" :changeType="changeType" :changeStack="changeStack"></CaseFilter>
-      </div>
+      </div> -->
       <div class="case-list">
         <CaseList :filter="filter"></CaseList>
       </div>

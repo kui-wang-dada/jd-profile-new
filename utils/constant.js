@@ -326,7 +326,7 @@ const projectList = [
   {
     name: 'Bluez NFT',
     stack: ['react', 'web3', 'python'],
-    type: ['网站'],
+    type: ['网站', '后端'],
     label: '开发web3 nft交易平台',
     thumb: '/img/project/web/bluez/thumb.png',
     img: [
@@ -693,7 +693,7 @@ const projectListEn = [
   {
     name: 'Bluez NFT',
     stack: ['react', 'web3', 'python'],
-    type: ['Website'],
+    type: ['Website', 'Backend'],
     label: 'Develop web3 nft trading platform',
     thumb: '/img/project/web/bluez/thumb.png',
     img: [

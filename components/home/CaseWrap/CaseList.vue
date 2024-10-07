@@ -8,27 +8,28 @@ let store = useCommon()
 // let projectList = store.projectList
 let projectList = computed(() => store.projectList)
 let visible = ref(false)
+const activeTab = ref(0);
 let activeItem = reactive({})
 const { t, locale, te } = useI18n()
 const props = defineProps(['filter'])
 
-console.log(projectList);
+let typeList = computed(() => {
+  let list = []
+  projectList.value.forEach(item => {
+    list.push(...item.type)
+  })
+  list = [t('common.all'), ...new Set(list)];
+  return list
+})
+
+
 let list = computed(() => {
-  if (props.filter.stackCheck.length == 0 && props.filter.typeCheck.length == 0) {
+  const activeTabType = typeList.value[activeTab.value]
+  console.log(typeList.value, activeTabType, 'activeTabList')
+  if (activeTabType === 'All') {
     return projectList.value
   }
-  let arr = []
-  props.filter.stackCheck.forEach(item => {
-    projectList.value.forEach(proItem => {
-      if (proItem.stack.includes(item)) arr.push(proItem)
-    })
-  })
-  props.filter.typeCheck.forEach(item => {
-    projectList.value.forEach(proItem => {
-      if (proItem.type.includes(item)) arr.push(proItem)
-    })
-  })
-  return arr
+  return projectList.value.filter(item => item.type.includes(activeTabType))
 })
 
 
@@ -50,27 +51,33 @@ const hideModal = () => {
 </script>
 <template>
   <div class='case-list-wrap'>
-    <a-list :grid="{ gutter: 24, xs: 1, sm: 2, md: 3, lg: 3, xl: 3, xxl: 3 }" :dataSource="list">
-      <template #renderItem="{ item }">
-        <a-list-item>
-          <a-card hoverable class="card" @click="clickItem(item)">
-            <div class="card-wrap">
-              <div class="card-con">
-                <h3>{{ item.name }}</h3>
-                <div class="tag-list">
-                  <a-tag v-for="tag in item.type" :key="tag" size="large" color="red">{{ tag }}</a-tag>
-                  <a-tag v-for="tag in item.stack" :key="tag" size="large" color="green">{{ tag }}</a-tag>
-                </div>
-                <p>{{ item.label }}</p>
+    <a-tabs size="large" v-model:activeKey="activeTab">
+      <a-tab-pane v-for="(typeItem, index) in typeList" :key="index" :tab="typeItem">
+        <a-list :grid="{ gutter: 24, xs: 1, sm: 2, md: 3, lg: 3, xl: 3, xxl: 3 }" :dataSource="list">
+          <template #renderItem="{ item }">
+            <a-list-item>
+              <a-card hoverable class="card" @click="clickItem(item)">
+                <div class="card-wrap">
+                  <div class="card-con">
+                    <h3>{{ item.name }}</h3>
+                    <div class="tag-list">
+                      <a-tag v-for="tag in item.type" :key="tag" size="large" color="red">{{ tag }}</a-tag>
+                      <a-tag v-for="tag in item.stack" :key="tag" size="large" color="green">{{ tag }}</a-tag>
+                    </div>
+                    <p>{{ item.label }}</p>
 
-              </div>
-              <div class="bg" :style='{ backgroundImage: `url(${item.thumb})` }'>
-              </div>
-            </div>
-          </a-card>
-        </a-list-item>
-      </template>
-    </a-list>
+                  </div>
+                  <div class="bg" :style='{ backgroundImage: `url(${item.thumb})` }'>
+                  </div>
+                </div>
+              </a-card>
+            </a-list-item>
+          </template>
+        </a-list>
+      </a-tab-pane>
+
+    </a-tabs>
+
     <a-modal v-model:visible="visible" width="70%" :title="activeItem.name" :okText="$t('common.confirm')"
       :cancelText="$t('common.cancel')" @ok="hideModal">
       <div>
@@ -85,9 +92,10 @@ const hideModal = () => {
         <h3>{{ $t('case.label5') }}</h3>
         <!-- swiper1 -->
         <div class="img-list">
-          <a-image-preview-group>
+          <CommonSwiperThumb :imgList="activeItem.img" />
+          <!-- <a-image-preview-group>
             <a-image v-for="(item, index) in activeItem.img" :key='index' :src="item" />
-          </a-image-preview-group>
+          </a-image-preview-group> -->
         </div>
 
       </div>
@@ -153,9 +161,12 @@ const hideModal = () => {
 }
 
 .thumb-example {
-  background-color: #000;
+
+  background: #000;
+  padding-bottom: 50px;
 
   .img-list {
+    height: 520px;
     .flex-row;
     align-items: stretch;
     justify-content: flex-start;
@@ -163,7 +174,11 @@ const hideModal = () => {
     gap: 30px;
 
     :deep(.ant-image) {
-      width: 30%
+      height: 100%;
+
+      .ant-image-img {
+        height: 100%;
+      }
     }
   }
 }
