@@ -1,18 +1,23 @@
-import { fileURLToPath } from "node:url";
+import { fileURLToPath } from 'node:url';
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   app: {
     head: {
-      script: [
-        { src: '/js/rem.js', type: 'text/javascript', },
+      script: [{ src: '/js/rem.js', type: 'text/javascript' }],
+      title: 'Profile Of Kui',
+      meta: [
+        {
+          name: 'description',
+          content:
+            'An active and responsible JavaScript Nija in front-end development with 8+ years of working experience seeking a Senior Frontend Developer position',
+        },
       ],
-    }
+    },
   },
-  css: ['ant-design-vue/dist/antd.css', 'assets/css/index.less',],
+  css: ['ant-design-vue/dist/antd.css', 'assets/css/index.less'],
   alias: {
     '@img': fileURLToPath(new URL('./assets/img', import.meta.url)),
-
   },
   // Global CSS: https://go.nuxtjs.dev/config-css
 
@@ -22,7 +27,7 @@ export default defineNuxtConfig({
     'nuxt-swiper',
   ],
   // i18n: {
-  //   // vueI18n: './assets/lang/index.ts' // if you are using custom path, default 
+  //   // vueI18n: './assets/lang/index.ts' // if you are using custom path, default
   //   // locales: ['en', 'zh'],
   //   locales: [
   //     {
@@ -67,24 +72,20 @@ export default defineNuxtConfig({
         },
       },
     },
-
   },
-  router: {
-
-  },
+  router: {},
   postcss: {
     plugins: {
       // 这个工具可以实现自动添加CSS3前缀
-      "autoprefixer": {
+      autoprefixer: {
         // overrideBrowserslist: ["last 5 version", ">1%", "ie >=8"]
       },
       'postcss-pxtorem': {
         rootValue: 192,
         propList: ['*'],
         replace: true, // 替换包含rem的规则，而不是添加回退
-        selectorBalckList: ["van"], // 匹配不被转换为rem的选择器
+        selectorBalckList: ['van'], // 匹配不被转换为rem的选择器
       },
     },
   },
-
-})
+});
