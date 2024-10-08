@@ -20,13 +20,13 @@
     "title1": "王逵",
     "label1": "2016年至今一直从事计算机工作，前端8年，后端3年",
     "label2": "先后经历区块链公司（三年），厚仁服务（三年），科大讯飞（一年），悠然一指（一年），云里服务（一年）",
-    "label3": "期间有生产项目的技术栈有：Python, Web3，React，Nextjs，Vue，Nuxtjs，React-Native，Cordova等",
-    "label4": "同时自学了node，java spring boot，golang等后端语言",
+    "label3": "期间有生产项目的技术栈有：React，Nextjs，Vue，Nuxtjs，Python, Web3，React-Native，Cordova等",
+    "label4": "同时自学了Node，Java spring boot，Golang等后端语言",
     "label5": "期待同行！！"
   },
   "website": {
     "title1": "工作经验",
-    "title2": "8年前端工作经验，业余时间自学Python，Node，Golang等",
+    "title2": "8年前端工作经验，业余时间自学Python，Node，Solidity，Golang等",
     "time": "工作时间",
     "column1": "序号",
     "column2": "板块名称",

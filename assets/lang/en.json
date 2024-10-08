@@ -18,15 +18,15 @@
   },
   "banner": {
     "title1": "Kui (Kevin) Wang",
-    "label1": "Since 2016, I have been engaged in programmer development, 8 years in the front end and 3 years in the back end",
+    "label1": "Since 2016, I have been engaged in programmer development, 8 years in the frontend and 3 years in the backend",
     "label2": "Previously worked at the following companies: Blockchain company (three years), Huren Service (three years), iFlytek (one year), Youran Yizhi (one year), Yunli Service (one year)",
-    "label3": "Technical Skill:Python, Web3, React, Nextjs, Vue, Nuxtjs, React-Native, Cordova, etc.",
-    "label4": "Familiar：node, java spring boot, golang and other back-end languages",
+    "label3": "Technical Skill: React, Nextjs, Vue, Nuxtjs, Python, Web3, React-Native, Cordova, etc.",
+    "label4": "Familiar：Node, Java spring boot, Golang ",
     "label5": "Looking forward to traveling with you!!"
   },
   "website": {
     "title1": "Work experience",
-    "title2": "8 years of front-end work experience, self-study solidity, Python, Node, Golang, etc.",
+    "title2": "8 years of front-end work experience, self-study Python, Node, Solidity, Golang, etc.",
     "time": "working hours",
     "column1": "Sequence number",
     "column2": "Plate name",

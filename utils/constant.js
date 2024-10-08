@@ -3,7 +3,7 @@ const tabList = [
     name: 'astriddao',
     title: 'Astriddao',
     time: '2022/3 - 至今',
-    label: ['sio2项目前端负责人，Astriddao协助开发', '熟悉技术栈：Web3，钱包连接，合约连接，React，Next 等'],
+    label: ['Bluez / Sio2项目前端负责人，Astriddao协助开发', '熟悉技术栈：Web3，钱包连接，合约连接，React，Next 等'],
     con: [
       {
         name: 'Bluez NFT交易平台',
@@ -159,7 +159,7 @@ const tabListEn = [
     title: 'Astriddao',
     time: '2022/3 - present',
     label: [
-      'sio2 project front-end leader, Astriddao assists in development',
+      'Bluez / Sio2 project front-end leader, Astriddao assists in development',
       'Familiar with technology stack: Web3, wallet connection, contract connection, React, Next, etc.',
     ],
     con: [
