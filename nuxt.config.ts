@@ -10,7 +10,7 @@ export default defineNuxtConfig({
         {
           name: 'description',
           content:
-            'An active and responsible JavaScript Nija in front-end development with 8+ years of working experience seeking a Senior Frontend Developer position',
+            'An active and responsible JavaScript Nija in frontend(React/Vue) and backend(Node/Python) development with 8+ years of working experience seeking a Senior Full-Stack Developer position',
         },
       ],
     },
